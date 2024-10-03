@@ -1,0 +1,32 @@
+
+* {
+    padding: 3px;;
+    margin: 0px;  
+
+}
+.navbar {
+    display:flex;
+    justify-content: space-between;
+
+    
+    background-color: blue;
+
+}
+
+.nombre {
+    background-color: blueviolet;
+    width: 8%;
+}
+
+.logo {
+    width: 50%;
+    
+}
+
+.button{
+    width: 22%;
+    background-color: aqua;
+    align-content: center;
+    
+    
+}
