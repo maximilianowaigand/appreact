@@ -1,35 +1,40 @@
+import { useState, useEffect } from "react"
+import { getProducts } from "../../asyncMock"
+import ItemList from "../ItemList/ItemList.js"
 
-import products from "../../products/productos"
-import Counter from "../Count/countList"
+
+
 
 
 
 const ItemListConteiner = ({greeting}) =>{
 
-    
+   const [products, setProducts] = useState([])
+   const [loading, setLoading] = useState(true)
+
+    useEffect(()=>{
+ getProducts().then(response =>{
+   console.log(response)
+         setProducts(response)
+
+ }).finally(()=>{
+      setLoading(false)
+ })
+    },[])
+
+
+    if(loading){
+      return <h1>cargando...</h1>
+    }
+
 
  return (
     <div>
         <h1>{greeting}</h1>
-        { products.map(prod => {
-            return (
-                <div>
-                    <img src={prod.img} alt={prod.name} width='100px' />
-                    <p>precio:${prod.price}</p>
-                    <p>{prod.name}</p>
-                    <Counter/>
-                    
-                    
-                </div>
-            )
-        })
-
-        }
-
+        
+        <ItemList products={products}/>
     </div>
     
-
-
 
  )
 }
