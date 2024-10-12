@@ -1,0 +1,10 @@
+.count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-color:2px solid black ;
+}
+.count button{
+    margin: 10px;
+}

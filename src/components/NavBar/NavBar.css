@@ -13,9 +13,18 @@
 
 }
 
-.nombre {
+.nombre  {
     background-color: blueviolet;
     width: 8%;
+    text-decoration: none;
+    
+}
+
+.nombre h3{
+    justify-content: center;
+    
+    color: black;
+
 }
 
 .logo {
@@ -23,11 +32,19 @@
     
 }
 
-.button{
-    width: 22%;
+.button-container{
+    
     background-color: aqua;
-    align-content: center;
-    margin-bottom: 5px;
+    align-items: center;
+    display: flex;
+    justify-content:center;
+    border-bottom: 50px;
+    width: 30%;
     
-    
+}
+
+.button-container button{
+    border-radius: 5px ;
+    margin: 10px;
+   
 }

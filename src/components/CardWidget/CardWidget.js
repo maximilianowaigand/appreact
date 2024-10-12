@@ -1,4 +1,4 @@
-import cart from './assets/carrito.jpg';
+
 import './CardWidget.css'
 
 
@@ -7,7 +7,8 @@ import './CardWidget.css'
 const CardWidget = () =>{
     return (
         <button className="carrito">
-            <img className="imagenCarrito" src={cart} alt='cart-widget'/>
+            <img className="imagenCarrito" src='/images/carrito.jpg' alt='cart-widget'/>
+            10
         </button>
     )
 }

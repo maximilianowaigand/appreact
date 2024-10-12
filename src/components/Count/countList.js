@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './count.css'
 
 const Counter = ({onAdd}) =>{
     const [count,setCount] = useState(0)
@@ -15,10 +16,11 @@ const Counter = ({onAdd}) =>{
     }
 
     return(
-        <div>
+        <div className="count">
 
-            <h3>{count}</h3>
+                
                 <button onClick={increment}>+</button>
+                <h3>{count}</h3>
                 <button onClick={decrement}>-</button>
                 <button onClick={onAdd}>Agregar Carrito</button>
     
