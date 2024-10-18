@@ -16,9 +16,9 @@ const NavBar = () =>{
     
         
             <div className="button-container">
-            <NavLink to={`/category/guitarra`}>Guitarra</NavLink> 
-            <NavLink to={`/category/amplificador`}>Amplificadores</NavLink>
-            <NavLink to={`/category/bajo`}>Bajos</NavLink>
+            <NavLink to={`/category/guitarra`} className="button">Guitarra</NavLink> 
+            <NavLink to={`/category/amplificador`} className="button">Amplificadores</NavLink>
+            <NavLink to={`/category/bajo`} className="button">Bajos</NavLink>
             </div>
             
             <CardWidget/>

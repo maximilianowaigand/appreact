@@ -1,13 +1,13 @@
 import './ItemDetail.css'
 
-const ItemDetail = ({detailProduct}) =>{
+const ItemDetail = ({name,img,price,stock}) =>{
 
-    const {name, img,price} = detailProduct
     return(
         <div className="detailProduct">
                <img src={img} style={{width:150}} alt={name}/>
                <h2>{name}</h2> 
-               <p>{price}</p>
+               <p>${price}</p>
+               <p>Stock:{stock}</p>
         </div>
     )
 }
