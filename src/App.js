@@ -7,6 +7,7 @@ import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailCont
 import { CartProvider } from './context/CartContext';
 
 
+
 function App() {
 
     
@@ -26,8 +27,6 @@ function App() {
           </Routes>
        </BrowserRouter>
       </CartProvider>
-
-
     </div>
   );
 }

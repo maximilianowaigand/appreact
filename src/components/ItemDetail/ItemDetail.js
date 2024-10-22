@@ -1,6 +1,9 @@
 import './ItemDetail.css'
 
+
 const ItemDetail = ({name,img,price,stock}) =>{
+
+    
 
     return(
         <div className="detailProduct">
