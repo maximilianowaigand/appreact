@@ -5,7 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListConteiner from './components/ItenListConteiner/ItemListConteiner';
 import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailConteiner';
 import { CartProvider } from './context/CartContext';
-
+import { NotificationProvider } from './notification/NotificationService';
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <NotificationProvider>
       <CartProvider>
        <BrowserRouter>
         <NavBar/>
@@ -27,6 +28,7 @@ function App() {
           </Routes>
        </BrowserRouter>
       </CartProvider>
+      </NotificationProvider>
     </div>
   );
 }
