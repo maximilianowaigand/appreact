@@ -1,10 +1,11 @@
 
-import { getProductById } from "../../asyncMock"
 import Counter from "../Count/countList"
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import './ItemDetailConteiner.css'
 import { useParams, useNavigate } from "react-router-dom"
+import { getDoc,doc } from "firebase/firestore"
+import { baseDate } from "../../services/firebase"
 
 const ItemDetailConteiner = () =>{
    const [detailProduct,setDetailProduct] = useState(null)
@@ -13,9 +14,13 @@ const ItemDetailConteiner = () =>{
     
     
     useEffect(()=>{
-        getProductById(productId).then(response =>{
-                setDetailProduct(response)
+        const docRef = doc(baseDate, 'products',productId)
+        getDoc(docRef).then(response => {
+            const data = response.data()
+            const productAdapted = {id:response.id, ...data}
+            setDetailProduct(productAdapted)
         })
+       
     },[productId])
     if (!detailProduct) {
         return <p>Cargando...</p>;  // Mientras se carga el producto, mostramos esto
