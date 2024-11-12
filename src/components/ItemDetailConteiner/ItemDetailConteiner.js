@@ -23,7 +23,7 @@ const ItemDetailConteiner = () =>{
        
     },[productId])
     if (!detailProduct) {
-        return <p>Cargando...</p>;  // Mientras se carga el producto, mostramos esto
+        return <p>Cargando...</p>
     }
 
        

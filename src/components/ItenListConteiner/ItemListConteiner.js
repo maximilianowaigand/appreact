@@ -27,7 +27,6 @@ const ItemListConteiner = ({greeting}) =>{
          const productAdapted = response.docs.map(doc => {
             const data = doc.data()
 
-            console.log(data)
 
             return {id:doc.id,...data}
          })

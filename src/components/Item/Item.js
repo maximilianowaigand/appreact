@@ -8,6 +8,7 @@ const Item = ({img,name,price,id })=>{
             <h3>{price}</h3>
             <footer>
                 <Link to={`/detail/${id}`}>ver detalle</Link>
+                
 
             </footer>
         </div>

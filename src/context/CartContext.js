@@ -18,16 +18,28 @@ export const CartProvider = ({children}) =>{
     }
       console.log(cart)
 
+      const totalCompra = () => {
+        return cart.reduce((acc,product) => acc + product.quantity * product.price,0)
+      }
+
+      const subTotal = (id) => {
+        const product = cart.find(prod => prod.id === id);  // Busca el producto por id
+            if (product) {
+            return product.quantity * product.price;
+      }
+    }
+
       const totalItemsInCart = () => {
         return cart.reduce((total, product) => total + product.quantity, 0);
       };
     
       const removeItem =(id)=>{
-          const cartWithoutProduct = cart.filter(prod => prod.id !== setCart(cartWithoutProduct))
+          const cartWithoutProduct = cart.filter(prod => prod.id !== id)
+          setCart(cartWithoutProduct)
       }
 
     return (
-        <CartContext.Provider value={{ addItem, cart,totalItemsInCart,removeItem,isInCart }}>
+        <CartContext.Provider value={{ addItem, cart,totalItemsInCart,removeItem,isInCart,totalCompra,subTotal }}>
 
             {children}
 
