@@ -2,12 +2,18 @@
     
     padding-right: 5px;
     background-color: red;
-    width: 8%;
+    width: 5%;
 
 }
 
 .imagenCarrito {
-    width: 90%;
+    width: 80%;
     
     
+}
+
+.contador{
+    border: none;
+    text-decoration:none;
+    color: black;
 }

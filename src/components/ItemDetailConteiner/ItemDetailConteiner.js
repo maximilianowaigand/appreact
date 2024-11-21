@@ -30,7 +30,7 @@ const ItemDetailConteiner = () =>{
     return(
         <div className="ItemDetailConteiner">
          <ItemDetail {...detailProduct}/>
-        <Counter {...detailProduct}/>
+        {detailProduct.stock !== 0 ? <Counter {...detailProduct}/>:<p>No hay Stock</p>}
         <button onClick={()=> navigate(-1)}>volver</button>
         </div>
      )

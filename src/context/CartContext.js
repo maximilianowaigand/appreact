@@ -31,15 +31,21 @@ export const CartProvider = ({children}) =>{
 
       const totalItemsInCart = () => {
         return cart.reduce((total, product) => total + product.quantity, 0);
-      };
+      }
+
+      const clearCart = () =>{
+        return setCart([])
+      }
     
       const removeItem =(id)=>{
           const cartWithoutProduct = cart.filter(prod => prod.id !== id)
           setCart(cartWithoutProduct)
       }
 
+
+      
     return (
-        <CartContext.Provider value={{ addItem, cart,totalItemsInCart,removeItem,isInCart,totalCompra,subTotal }}>
+        <CartContext.Provider value={{ addItem, cart,totalItemsInCart,removeItem,isInCart,totalCompra,subTotal,clearCart }}>
 
             {children}
 

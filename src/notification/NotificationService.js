@@ -2,14 +2,15 @@ import { useState, createContext } from "react";
 
 const Notification  =({message,severity}) =>{
     const notificationStyles = {
-        position:'absolute',
-        top:100,
-        rigth:10,
+        position:'fixed',
+        top:180,
+        right:10,
         width:'auto',
         height:'auto',
         backgroundColor:severity === 'success' ? 'green' :  'red',
         color:'white',
         padding:'10px 20px 10px 20px',
+        zIndex: 9999,
     }
 
     if(message === '') return
@@ -27,8 +28,8 @@ export const NotificationProvider = ({children}) =>{
         const [message,setMessage] = useState('')
         const [severity,setSeverity] = useState('success')
 
-        const setNotification = (severity,messange) =>{
-            setMessage(messange)
+        const setNotification = (severity,message) =>{
+            setMessage(message)
             setSeverity(severity)
         }
 

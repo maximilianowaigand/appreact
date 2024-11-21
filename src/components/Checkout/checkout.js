@@ -7,11 +7,14 @@ import { NotificationContext } from "../../notification/NotificationService"
 
 const Checkout = () =>{
 
-   const { cart,totalCompra } = useContext(CartContext)
+   const { cart,totalCompra,clearCart } = useContext(CartContext)
    const {setNotification} = useContext(NotificationContext)
    const [orderId, setOrderId] = useState(null)
+   const [loading, setLoading] = useState(false)
 
    const createOrder = async () =>{
+      
+      setLoading(true)
       try{
          const objOrder = {
       buyer:{
@@ -58,10 +61,14 @@ const Checkout = () =>{
       const orderRef  = collection(baseDate, 'orders')
 
       const orderAdded = await addDoc( orderRef, objOrder)
-      
-      setOrderId(orderAdded.id)
+
+      clearCart()
 
       setNotification('success',`Su compra se genero exitosamente.` )
+
+      setOrderId(orderAdded.id)
+
+      
    }else{
       setNotification('error', 'Hay productos fuera de stock')
    }
@@ -70,6 +77,8 @@ const Checkout = () =>{
 
       }catch(error){
          setNotification('error', 'Ocurrió un error al procesar su compra. Inténtelo nuevamente.')
+      } finally {
+         setLoading(false)
       }
 
       
@@ -77,6 +86,14 @@ const Checkout = () =>{
 
    }
 
+   if(loading){
+      return(
+         <div className="spinner-border" role="status">
+      <span className="visually-hidden">Loading...</span>
+          </div>
+      )
+      
+    }
    
    
    
